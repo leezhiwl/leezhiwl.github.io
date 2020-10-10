@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>去哪儿网数据清洗 | 利用Python进行数据分析</title>
+<title>1 | 利用Python进行数据分析</title>
 
 <link rel="shortcut icon" href="https://leezhiwl.GitHub.io/favicon.ico?v=1602337349067">
 
@@ -89,7 +89,7 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    去哪儿网数据清洗
+                    1
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
@@ -102,27 +102,29 @@
 <div class="toc"><ul class="toc-item"><li><span><a href="#一、数据清洗" data-toc-modified-id="一、数据清洗-1">一、数据清洗</a></span><ul class="toc-item"><li><span><a href="#1.-数据导入和概览" data-toc-modified-id="1.-数据导入和概览-1.1">1. 数据导入和概览</a></span></li></ul></li><li><span><a href="#二、数据预处理" data-toc-modified-id="二、数据预处理-2">二、数据预处理</a></span><ul class="toc-item"><li><span><a href="#1.-列名空字符去除" data-toc-modified-id="1.-列名空字符去除-2.1">1. 列名空字符去除</a></span></li><li><span><a href="#2.-重复值处理" data-toc-modified-id="2.-重复值处理-2.2">2. 重复值处理</a></span></li><li><span><a href="#3.-异常值处理" data-toc-modified-id="3.-异常值处理-2.3">3. 异常值处理</a></span></li><li><span><a href="#4.-缺失值处理" data-toc-modified-id="4.-缺失值处理-2.4">4. 缺失值处理</a></span></li><li><span><a href="#5.文本型数据的处理" data-toc-modified-id="5.文本型数据的处理-2.5">5.文本型数据的处理</a></span></li></ul></li></ul></div>
 <h1 id="一-数据清洗">一、数据清洗</h1>
 <h2 id="1-数据导入和概览">1. 数据导入和概览</h2>
-<p>导入相关数据计算包：</p>
-<pre><code class="language-python">import numpy as np 
-import pandas as pd 
+<p>导入Python科学计算库：</p>
+<pre><code class="language-python">import warnings  # 忽略warning错误
+warnings.filterwarnings(&quot;ignore&quot;)  # 忽略warning错误
+</code></pre>
+<pre><code class="language-python">import pandas as pd 
 import matplotlib.pyplot as plt 
 import seaborn as sns 
+
+%matplotlib inline
+# 此行代码必须单独一行，同行不可添加注释。作用：plot和figure可直接生成图形或画布 
+
 sns.set_style({'font.sans-serif':['simhei','Arial']})
 sns.set(style=&quot;white&quot;, palette=&quot;muted&quot;, color_codes=True) 
-%matplotlib inline
 </code></pre>
-<pre><code>/opt/anaconda3/lib/python3.7/site-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
-  import pandas.util.testing as tm
-</code></pre>
-<p>从csv文件中导入数据到jupyter notebook：</p>
+<p>加载读取文件：</p>
 <pre><code class="language-python">df = pd.read_csv('./qunar_freetrip.csv',index_col=0)
 </code></pre>
-<p>查看数据形状，原数据共5100行，13列：</p>
+<p>先查看一下行列数量：</p>
 <pre><code class="language-python">df.shape
 </code></pre>
 <pre><code>(5100, 13)
 </code></pre>
-<p>查看数据前5行:</p>
+<p>简单浏览下数据：</p>
 <pre><code class="language-python">df.head()
 </code></pre>
 <div>
@@ -266,8 +268,8 @@ Data columns (total 13 columns):
 dtypes: float64(2), object(11)
 memory usage: 557.8+ KB
 </code></pre>
-<p>出发地、目的地、价格、节省四列数据有缺失，后续需要处理缺失值。</p>
-<p>查看数值型数据的描述统计信息：</p>
+<p>”出发地“、”目的地“、”价格“、”节省“ 四列有缺失值，需要清洗。</p>
+<p>describe( )展示一些基本信息：</p>
 <pre><code class="language-python">df.describe()
 </code></pre>
 <div>
@@ -336,7 +338,13 @@ memory usage: 557.8+ KB
   </tbody>
 </table>
 </div>
-<p>价格和节省两列中数据最大值有点异常大，后续确认是否为异常值。</p>
+<p>”价格“和”节省“两列中数据的最大值异常大，需要判断是否为异常值。</p>
+<p>查看有没有重复值：</p>
+<pre><code class="language-python">df.duplicated().sum()
+</code></pre>
+<pre><code>100
+</code></pre>
+<p>有重复行，后续可直接删除。</p>
 <p>再看看列名，列名中有空格，需要先去除：</p>
 <pre><code class="language-python">df.columns
 </code></pre>
@@ -1718,36 +1726,14 @@ df[df.价格.isnull()]
 </div>
 <pre><code class="language-python">sns.distplot(df['价格'].dropna(), kde = True)
 </code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f93eace6890&gt;
-
-
-
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:211: RuntimeWarning: Glyph 20215 missing from current font.
-  font.set_text(s, 0.0, flags=flags)
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:211: RuntimeWarning: Glyph 26684 missing from current font.
-  font.set_text(s, 0.0, flags=flags)
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:180: RuntimeWarning: Glyph 20215 missing from current font.
-  font.set_text(s, 0, flags=flags)
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:180: RuntimeWarning: Glyph 26684 missing from current font.
-  font.set_text(s, 0, flags=flags)
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9fe855ba90&gt;
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="output_53_2.png" alt="png" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="output_57_1.png" alt="png" loading="lazy"></figure>
 <pre><code class="language-python">sns.distplot(df['节省'].dropna(), kde = True)
 </code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f94086d0310&gt;
-
-
-
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:211: RuntimeWarning: Glyph 33410 missing from current font.
-  font.set_text(s, 0.0, flags=flags)
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:211: RuntimeWarning: Glyph 30465 missing from current font.
-  font.set_text(s, 0.0, flags=flags)
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:180: RuntimeWarning: Glyph 33410 missing from current font.
-  font.set_text(s, 0, flags=flags)
-/opt/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_agg.py:180: RuntimeWarning: Glyph 30465 missing from current font.
-  font.set_text(s, 0, flags=flags)
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9fb895df50&gt;
 </code></pre>
-<figure data-type="image" tabindex="2"><img src="output_54_2.png" alt="png" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="output_58_1.png" alt="png" loading="lazy"></figure>
 <p>可以看出，价格和节省两列数据均呈右偏分布，缺失值不多，用中位数填充较好。</p>
 <pre><code class="language-python">df['价格'].fillna(round(df['价格'].median(),0), inplace = True)
 df['节省'].fillna(round(df['节省'].median(),0), inplace = True)
@@ -2130,8 +2116,8 @@ df['酒店评分'] = df['酒店'].str.extract('(\d\.\d)分/5分',expand=False)
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://leezhiwl.GitHub.io/post/hello-gridea/" class="post-title gt-a-link">
-                    Hello Gridea
+                <a href="https://leezhiwl.GitHub.io/post/qu-na-er-wang-shu-ju-qing-xi/" class="post-title gt-a-link">
+                    去哪儿网数据清洗
                 </a>
             </div>
         
