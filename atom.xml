@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.GitHub.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-10-10T14:49:26.111Z</updated>
+    <updated>2020-10-10T14:50:24.873Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.GitHub.io"/>
     <link rel="self" href="https://leezhiwl.GitHub.io/atom.xml"/>
@@ -47,7 +47,7 @@ sns.set(style=&quot;white&quot;, palette=&quot;muted&quot;, color_codes=True)
 <p>简单浏览下数据：</p>
 <pre><code class="language-python">df.head()
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://leezhiwl.GitHub.io/post-images/%E5%8E%BB%E5%93%AA%E5%84%BF%E7%BD%91.df.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://leezhiwl.GitHub.io/post-images/%E5%8E%BB%E5%93%AA%E5%84%BF%E7%BD%91df.head.png" alt="" loading="lazy"></figure>
 <p>查看数据结构(列名、行数、字段类型):</p>
 <pre><code class="language-python">df.info()
 </code></pre>
