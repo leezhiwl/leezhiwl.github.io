@@ -4,9 +4,9 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>12 | 利用Python进行数据分析</title>
+<title>1223 | 利用Python进行数据分析</title>
 
-<link rel="shortcut icon" href="https://leezhiwl.GitHub.io/favicon.ico?v=1602337815560">
+<link rel="shortcut icon" href="https://leezhiwl.GitHub.io/favicon.ico?v=1602337901478">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leezhiwl.GitHub.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1602337815560" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1602337901478" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -89,7 +89,7 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    12
+                    1223
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
@@ -104,7 +104,7 @@
 <h2 id="1-数据导入和概览">1. 数据导入和概览</h2>
 <p>导入Python科学计算库：</p>
 <pre><code class="language-python">import warnings  # 忽略warning错误
-warnings.filterwarnings(&quot;ignore&quot;)  # 忽略warning错误
+warnings.filterwarnings(&quot;ignore&quot;)  
 </code></pre>
 <pre><code class="language-python">import pandas as pd 
 import matplotlib.pyplot as plt 
@@ -244,6 +244,7 @@ sns.set(style=&quot;white&quot;, palette=&quot;muted&quot;, color_codes=True)
   </tbody>
 </table>
 </div>
+<figure data-type="image" tabindex="1"><img src="attachment:image.png" alt="image.png" loading="lazy"></figure>
 <p>查看数据结构(列名、行数、字段类型):</p>
 <pre><code class="language-python">df.info()
 </code></pre>
@@ -1726,14 +1727,14 @@ df[df.价格.isnull()]
 </div>
 <pre><code class="language-python">sns.distplot(df['价格'].dropna(), kde = True)
 </code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9fe855ba90&gt;
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="output_57_1.png" alt="png" loading="lazy"></figure>
-<pre><code class="language-python">sns.distplot(df['节省'].dropna(), kde = True)
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9fb895df50&gt;
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdf7847f390&gt;
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="output_58_1.png" alt="png" loading="lazy"></figure>
+<pre><code class="language-python">sns.distplot(df['节省'].dropna(), kde = True)
+</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdf68aec450&gt;
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="output_59_1.png" alt="png" loading="lazy"></figure>
 <p>可以看出，价格和节省两列数据均呈右偏分布，缺失值不多，用中位数填充较好。</p>
 <pre><code class="language-python">df['价格'].fillna(round(df['价格'].median(),0), inplace = True)
 df['节省'].fillna(round(df['节省'].median(),0), inplace = True)

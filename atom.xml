@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.GitHub.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-10-10T13:50:19.032Z</updated>
+    <updated>2020-10-10T13:51:44.679Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.GitHub.io"/>
     <link rel="self" href="https://leezhiwl.GitHub.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://leezhiwl.GitHub.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 利用Python进行数据分析</rights>
     <entry>
-        <title type="html"><![CDATA[12]]></title>
+        <title type="html"><![CDATA[1223]]></title>
         <id>https://leezhiwl.GitHub.io/post/1/</id>
         <link href="https://leezhiwl.GitHub.io/post/1/">
         </link>
@@ -22,7 +22,7 @@
 <h2 id="1-数据导入和概览">1. 数据导入和概览</h2>
 <p>导入Python科学计算库：</p>
 <pre><code class="language-python">import warnings  # 忽略warning错误
-warnings.filterwarnings(&quot;ignore&quot;)  # 忽略warning错误
+warnings.filterwarnings(&quot;ignore&quot;)  
 </code></pre>
 <pre><code class="language-python">import pandas as pd 
 import matplotlib.pyplot as plt 
@@ -162,6 +162,7 @@ sns.set(style=&quot;white&quot;, palette=&quot;muted&quot;, color_codes=True)
   </tbody>
 </table>
 </div>
+<figure data-type="image" tabindex="1"><img src="attachment:image.png" alt="image.png" loading="lazy"></figure>
 <p>查看数据结构(列名、行数、字段类型):</p>
 <pre><code class="language-python">df.info()
 </code></pre>
@@ -1644,14 +1645,14 @@ df[df.价格.isnull()]
 </div>
 <pre><code class="language-python">sns.distplot(df['价格'].dropna(), kde = True)
 </code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9fe855ba90&gt;
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="output_57_1.png" alt="png" loading="lazy"></figure>
-<pre><code class="language-python">sns.distplot(df['节省'].dropna(), kde = True)
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9fb895df50&gt;
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdf7847f390&gt;
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="output_58_1.png" alt="png" loading="lazy"></figure>
+<pre><code class="language-python">sns.distplot(df['节省'].dropna(), kde = True)
+</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdf68aec450&gt;
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="output_59_1.png" alt="png" loading="lazy"></figure>
 <p>可以看出，价格和节省两列数据均呈右偏分布，缺失值不多，用中位数填充较好。</p>
 <pre><code class="language-python">df['价格'].fillna(round(df['价格'].median(),0), inplace = True)
 df['节省'].fillna(round(df['节省'].median(),0), inplace = True)
