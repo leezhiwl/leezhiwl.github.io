@@ -6,7 +6,7 @@
 
 <title>1223 | 利用Python进行数据分析</title>
 
-<link rel="shortcut icon" href="https://leezhiwl.GitHub.io/favicon.ico?v=1602337901478">
+<link rel="shortcut icon" href="https://leezhiwl.GitHub.io/favicon.ico?v=1602339613467">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leezhiwl.GitHub.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1602337901478" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1602339613467" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -102,7 +102,8 @@
 <div class="toc"><ul class="toc-item"><li><span><a href="#一、数据清洗" data-toc-modified-id="一、数据清洗-1">一、数据清洗</a></span><ul class="toc-item"><li><span><a href="#1.-数据导入和概览" data-toc-modified-id="1.-数据导入和概览-1.1">1. 数据导入和概览</a></span></li></ul></li><li><span><a href="#二、数据预处理" data-toc-modified-id="二、数据预处理-2">二、数据预处理</a></span><ul class="toc-item"><li><span><a href="#1.-列名空字符去除" data-toc-modified-id="1.-列名空字符去除-2.1">1. 列名空字符去除</a></span></li><li><span><a href="#2.-重复值处理" data-toc-modified-id="2.-重复值处理-2.2">2. 重复值处理</a></span></li><li><span><a href="#3.-异常值处理" data-toc-modified-id="3.-异常值处理-2.3">3. 异常值处理</a></span></li><li><span><a href="#4.-缺失值处理" data-toc-modified-id="4.-缺失值处理-2.4">4. 缺失值处理</a></span></li><li><span><a href="#5.文本型数据的处理" data-toc-modified-id="5.文本型数据的处理-2.5">5.文本型数据的处理</a></span></li></ul></li></ul></div>
 <h1 id="一-数据清洗">一、数据清洗</h1>
 <h2 id="1-数据导入和概览">1. 数据导入和概览</h2>
-<p>导入Python科学计算库：</p>
+<!-- more -->
+<!-- more -->
 <pre><code class="language-python">import warnings  # 忽略warning错误
 warnings.filterwarnings(&quot;ignore&quot;)  
 </code></pre>
@@ -127,124 +128,7 @@ sns.set(style=&quot;white&quot;, palette=&quot;muted&quot;, color_codes=True)
 <p>简单浏览下数据：</p>
 <pre><code class="language-python">df.head()
 </code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-<pre><code>.dataframe tbody tr th {
-    vertical-align: top;
-}
-
-.dataframe thead th {
-    text-align: right;
-}
-</code></pre>
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>出发地</th>
-      <th>目的地</th>
-      <th>价格</th>
-      <th>节省</th>
-      <th>路线名</th>
-      <th>酒店</th>
-      <th>房间</th>
-      <th>去程航司</th>
-      <th>去程方式</th>
-      <th>去程时间</th>
-      <th>回程航司</th>
-      <th>回程方式</th>
-      <th>回程时间</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>哈尔滨</td>
-      <td>北海</td>
-      <td>2208.0</td>
-      <td>650.0</td>
-      <td>哈尔滨-北海3天2晚 | 入住北海祥丰嘉年华大酒店 + 春秋航空往返机票</td>
-      <td>北海祥丰嘉年华大酒店 舒适型 4.7分/5分</td>
-      <td>标准双人间(双床) 双床 不含早 1间2晚</td>
-      <td>春秋航空 9C8741</td>
-      <td>直飞</td>
-      <td>17:10-21:50</td>
-      <td>春秋航空 9C8742</td>
-      <td>直飞</td>
-      <td>10:20-15:05</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>成都</td>
-      <td>泸沽湖</td>
-      <td>1145.0</td>
-      <td>376.0</td>
-      <td>成都-泸沽湖3天2晚 | 入住7天酒店丽江古城中心店 + 成都航空往返机票</td>
-      <td>7天酒店丽江古城中心店 经济型 4.0分/5分</td>
-      <td>经济房-不含早-限时特... 其他 不含早 1间2晚</td>
-      <td>成都航空 EU2237</td>
-      <td>直飞</td>
-      <td>19:45-21:20</td>
-      <td>成都航空 EU2738</td>
-      <td>直飞</td>
-      <td>23:30-01:05</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>广州</td>
-      <td>沈阳</td>
-      <td>2702.0</td>
-      <td>618.0</td>
-      <td>广州-沈阳3天2晚 | 入住沈阳中煤宾馆 + 南方航空/深圳航空往返机票</td>
-      <td>沈阳中煤宾馆 舒适型 4.5分/5分</td>
-      <td>大床间(内宾) 大床 双早 1间2晚</td>
-      <td>南方航空 CZ6384</td>
-      <td>直飞</td>
-      <td>08:05-11:45</td>
-      <td>深圳航空 ZH9652</td>
-      <td>经停</td>
-      <td>08:20-13:05</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>上海</td>
-      <td>九寨沟</td>
-      <td>1954.0</td>
-      <td>484.0</td>
-      <td>上海-九寨沟3天2晚 | 入住红原芸谊大酒店 + 成都航空往返机票</td>
-      <td>红原芸谊大酒店 舒适型 4.6分/5分</td>
-      <td>豪华双床房[双早] 双床 双早 1间2晚</td>
-      <td>成都航空 EU6678</td>
-      <td>直飞</td>
-      <td>21:55-01:15</td>
-      <td>成都航空 EU6677</td>
-      <td>直飞</td>
-      <td>17:45-20:35</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>广州</td>
-      <td>天津</td>
-      <td>1608.0</td>
-      <td>422.0</td>
-      <td>广州-天津3天2晚 | 入住天津逸海明珠大酒店 + 奥凯航空/海南航空往返机票</td>
-      <td>天津逸海明珠大酒店 高档型 4.1分/5分</td>
-      <td>豪华双床房(预付) 双床 不含早 1间2晚</td>
-      <td>奥凯航空 BK2787</td>
-      <td>直飞</td>
-      <td>06:55-10:00</td>
-      <td>海南航空 HU7201</td>
-      <td>直飞</td>
-      <td>20:15-23:25</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-<figure data-type="image" tabindex="1"><img src="attachment:image.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://leezhiwl.GitHub.io/post-images/1602339500919.png" alt="" loading="lazy"></figure>
 <p>查看数据结构(列名、行数、字段类型):</p>
 <pre><code class="language-python">df.info()
 </code></pre>
