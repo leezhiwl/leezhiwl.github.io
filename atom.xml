@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-11-13T10:10:14.970Z</updated>
+    <updated>2020-11-13T10:19:19.715Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
-    <subtitle>温故而知新@leezhiwl</subtitle>
+    <subtitle>温故而知新@leezhiwl@huxiayun</subtitle>
     <logo>https://leezhiwl.github.io/images/avatar.png</logo>
     <icon>https://leezhiwl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 利用Python进行数据分析</rights>
@@ -41,6 +41,15 @@
         <updated>2020-11-13T01:00:57.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://leezhiwl.github.io/post-images/1605260515903.png" alt="" loading="lazy"><br>
 <img src="https://leezhiwl.github.io/post-images/1605260522269.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tableau_科比的投篮选择]]></title>
+        <id>https://leezhiwl.github.io/post/tableau_-ke-bi-de-tou-lan-xuan-ze/</id>
+        <link href="https://leezhiwl.github.io/post/tableau_-ke-bi-de-tou-lan-xuan-ze/">
+        </link>
+        <updated>2020-11-12T10:16:58.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605262662607.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
