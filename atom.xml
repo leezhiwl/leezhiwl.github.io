@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-11-13T10:22:57.292Z</updated>
+    <updated>2020-11-13T11:36:38.920Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
@@ -45,21 +45,39 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tableau_科比的投篮选择]]></title>
-        <id>https://leezhiwl.github.io/post/tableau_-ke-bi-de-tou-lan-xuan-ze/</id>
-        <link href="https://leezhiwl.github.io/post/tableau_-ke-bi-de-tou-lan-xuan-ze/">
+        <title type="html"><![CDATA[Tableau_深圳新冠疫情]]></title>
+        <id>https://leezhiwl.github.io/post/tableau_-shen-zhen-xin-guan-yi-qing/</id>
+        <link href="https://leezhiwl.github.io/post/tableau_-shen-zhen-xin-guan-yi-qing/">
         </link>
-        <updated>2020-11-12T10:16:58.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605262662607.png" alt="" loading="lazy"></figure>
+        <updated>2020-11-12T11:27:17.000Z</updated>
+        <content type="html"><![CDATA[<p>针对深圳新冠疫情情况，做一期报告。</p>
+<p><img src="https://leezhiwl.github.io/post-images/1605266902463.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266916247.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266922563.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266927429.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266932413.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266939631.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266944064.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266948730.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266953363.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266958230.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266962879.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266967980.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266972497.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266976564.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266982329.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266986363.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266990980.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266996313.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tableau_全球疫苗接种率]]></title>
-        <id>https://leezhiwl.github.io/post/tableau_-quan-qiu-yi-miao-jie-chong/</id>
-        <link href="https://leezhiwl.github.io/post/tableau_-quan-qiu-yi-miao-jie-chong/">
+        <title type="html"><![CDATA[Tableau_香港传染病数据分析]]></title>
+        <id>https://leezhiwl.github.io/post/tableau_-xiang-gang-chuan-ran-bing-shu-ju-fen-xi/</id>
+        <link href="https://leezhiwl.github.io/post/tableau_-xiang-gang-chuan-ran-bing-shu-ju-fen-xi/">
         </link>
-        <updated>2020-11-11T10:21:17.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605262915184.png" alt="" loading="lazy"></figure>
+        <updated>2020-11-12T11:01:17.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605265335635.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
