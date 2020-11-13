@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-11-13T09:01:34.828Z</updated>
+    <updated>2020-11-13T09:19:24.484Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://leezhiwl.github.io/images/avatar.png</logo>
     <icon>https://leezhiwl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 利用Python进行数据分析</rights>
+    <entry>
+        <title type="html"><![CDATA[Python_去哪儿网数据清洗]]></title>
+        <id>https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/</id>
+        <link href="https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/">
+        </link>
+        <updated>2020-11-13T09:18:11.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605259121012.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Tableau_超市销售数据分析]]></title>
         <id>https://leezhiwl.github.io/post/chao-shi-xiao-shou-shu-ju-fen-xi/</id>
