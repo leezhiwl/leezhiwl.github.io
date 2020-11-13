@@ -6,7 +6,7 @@
 
 <title>去哪儿网数据清洗 | 利用Python进行数据分析</title>
 
-<link rel="shortcut icon" href="https://leezhiwl.github.io/favicon.ico?v=1605246474248">
+<link rel="shortcut icon" href="https://leezhiwl.github.io/favicon.ico?v=1605247260220">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leezhiwl.github.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1605246474248" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1605247260220" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -98,39 +98,152 @@
                     
                 </div>
                 <div class="post-content">
-                    <!-- more -->
-<!-- more -->
-<h1>去哪儿网数据清理<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#一、数据清洗" data-toc-modified-id="一、数据清洗-1">一、数据清洗</a></span><ul class="toc-item"><li><span><a href="#1.-数据导入和概览" data-toc-modified-id="1.-数据导入和概览-1.1">1. 数据导入和概览</a></span><ul class="toc-item"><li><span><a href="#1.1-导入Python科学计算库" data-toc-modified-id="1.1-导入Python科学计算库-1.1.1">1.1 导入Python科学计算库</a></span></li><li><span><a href="#1.2-加载读取文件" data-toc-modified-id="1.2-加载读取文件-1.1.2">1.2 加载读取文件</a></span></li><li><span><a href="#1.3-先查看一下行列数量" data-toc-modified-id="1.3-先查看一下行列数量-1.1.3">1.3 先查看一下行列数量</a></span></li><li><span><a href="#1.4-简单浏览下数据" data-toc-modified-id="1.4-简单浏览下数据-1.1.4">1.4 简单浏览下数据</a></span></li><li><span><a href="#1.5-查看数据结构(列名、行数、字段类型)" data-toc-modified-id="1.5-查看数据结构(列名、行数、字段类型)-1.1.5">1.5 查看数据结构(列名、行数、字段类型)</a></span></li><li><span><a href="#1.6-describe(-)展示一些基本信息" data-toc-modified-id="1.6-describe(-)展示一些基本信息-1.1.6">1.6 describe( )展示一些基本信息</a></span></li><li><span><a href="#1.7-查看有没有重复值：" data-toc-modified-id="1.7-查看有没有重复值：-1.1.7">1.7 查看有没有重复值：</a></span></li><li><span><a href="#1.8-再看看列名，列名中有空格，需要先去除" data-toc-modified-id="1.8-再看看列名，列名中有空格，需要先去除-1.1.8">1.8 再看看列名，列名中有空格，需要先去除</a></span></li></ul></li></ul></li><li><span><a href="#二、数据预处理" data-toc-modified-id="二、数据预处理-2">二、数据预处理</a></span><ul class="toc-item"><li><span><a href="#1.-列名空字符去除" data-toc-modified-id="1.-列名空字符去除-2.1">1. 列名空字符去除</a></span></li><li><span><a href="#2.-重复值处理" data-toc-modified-id="2.-重复值处理-2.2">2. 重复值处理</a></span></li><li><span><a href="#3.-异常值处理" data-toc-modified-id="3.-异常值处理-2.3">3. 异常值处理</a></span></li><li><span><a href="#4.-缺失值处理" data-toc-modified-id="4.-缺失值处理-2.4">4. 缺失值处理</a></span></li><li><span><a href="#5.文本型数据的处理" data-toc-modified-id="5.文本型数据的处理-2.5">5.文本型数据的处理</a></span></li></ul></li></ul></div>
-<h1 id="一-数据清洗">一、数据清洗</h1>
-<h2 id="1-数据导入和概览">1. 数据导入和概览</h2>
-<h3 id="11-导入python科学计算库">1.1 导入Python科学计算库</h3>
-<pre><code class="language-python">import warnings  # 忽略warning错误
+                    <h1>去哪儿网数据清洗<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#数据预览" data-toc-modified-id="数据预览-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>数据预览</a></span><ul class="toc-item"><li><span><a href="#数据导入和概览" data-toc-modified-id="数据导入和概览-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>数据导入和概览</a></span><ul class="toc-item"><li><span><a href="#加载数据分析需要使用的科学计算库" data-toc-modified-id="加载数据分析需要使用的科学计算库-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>加载数据分析需要使用的科学计算库</a></span></li><li><span><a href="#读取文件" data-toc-modified-id="读取文件-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>读取文件</a></span></li><li><span><a href="#查看一下行列数量" data-toc-modified-id="查看一下行列数量-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>查看一下行列数量</a></span></li><li><span><a href="#简单浏览下数据" data-toc-modified-id="简单浏览下数据-1.1.4"><span class="toc-item-num">1.1.4&nbsp;&nbsp;</span>简单浏览下数据</a></span></li><li><span><a href="#看下数据的大概分布" data-toc-modified-id="看下数据的大概分布-1.1.5"><span class="toc-item-num">1.1.5&nbsp;&nbsp;</span>看下数据的大概分布</a></span></li><li><span><a href="#describe(-)展示一些基本信息" data-toc-modified-id="describe(-)展示一些基本信息-1.1.6"><span class="toc-item-num">1.1.6&nbsp;&nbsp;</span>describe( )展示一些基本信息</a></span></li><li><span><a href="#查看有没有重复值" data-toc-modified-id="查看有没有重复值-1.1.7"><span class="toc-item-num">1.1.7&nbsp;&nbsp;</span>查看有没有重复值</a></span></li><li><span><a href="#看看列名" data-toc-modified-id="看看列名-1.1.8"><span class="toc-item-num">1.1.8&nbsp;&nbsp;</span>看看列名</a></span></li></ul></li></ul></li><li><span><a href="#数据清洗" data-toc-modified-id="数据清洗-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>数据清洗</a></span><ul class="toc-item"><li><span><a href="#“列名”清洗" data-toc-modified-id="“列名”清洗-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>“列名”清洗</a></span></li><li><span><a href="#重复值处理" data-toc-modified-id="重复值处理-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>重复值处理</a></span><ul class="toc-item"><li><span><a href="#判断重复行" data-toc-modified-id="判断重复行-2.2.1"><span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>判断重复行</a></span></li><li><span><a href="#重复行清洗" data-toc-modified-id="重复行清洗-2.2.2"><span class="toc-item-num">2.2.2&nbsp;&nbsp;</span>重复行清洗</a></span></li></ul></li><li><span><a href="#异常值处理" data-toc-modified-id="异常值处理-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>异常值处理</a></span><ul class="toc-item"><li><span><a href="#异常值列概览" data-toc-modified-id="异常值列概览-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>异常值列概览</a></span></li><li><span><a href="#“价格”异常值清洗" data-toc-modified-id="“价格”异常值清洗-2.3.2"><span class="toc-item-num">2.3.2&nbsp;&nbsp;</span>“价格”异常值清洗</a></span></li><li><span><a href="#“节省”异常值清洗" data-toc-modified-id="“节省”异常值清洗-2.3.3"><span class="toc-item-num">2.3.3&nbsp;&nbsp;</span>“节省”异常值清洗</a></span></li><li><span><a href="#检验删除异常值后的数据基本特征" data-toc-modified-id="检验删除异常值后的数据基本特征-2.3.4"><span class="toc-item-num">2.3.4&nbsp;&nbsp;</span>检验删除异常值后的数据基本特征</a></span></li></ul></li><li><span><a href="#缺失值处理" data-toc-modified-id="缺失值处理-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>缺失值处理</a></span><ul class="toc-item"><li><span><a href="#查看缺失值情况" data-toc-modified-id="查看缺失值情况-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>查看缺失值情况</a></span></li><li><span><a href="#“出发地”缺失值处理" data-toc-modified-id="“出发地”缺失值处理-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>“出发地”缺失值处理</a></span></li><li><span><a href="#“目的地”缺失值处理" data-toc-modified-id="“目的地”缺失值处理-2.4.3"><span class="toc-item-num">2.4.3&nbsp;&nbsp;</span>“目的地”缺失值处理</a></span></li><li><span><a href="#“价格”和“节省”缺失值处理" data-toc-modified-id="“价格”和“节省”缺失值处理-2.4.4"><span class="toc-item-num">2.4.4&nbsp;&nbsp;</span>“价格”和“节省”缺失值处理</a></span></li><li><span><a href="#检验缺失值处理完成情况" data-toc-modified-id="检验缺失值处理完成情况-2.4.5"><span class="toc-item-num">2.4.5&nbsp;&nbsp;</span>检验缺失值处理完成情况</a></span></li></ul></li><li><span><a href="#文本型数据的处理" data-toc-modified-id="文本型数据的处理-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>文本型数据的处理</a></span></li></ul></li></ul></div>
+<h1 id="数据预览">数据预览</h1>
+<h2 id="数据导入和概览">数据导入和概览</h2>
+<h3 id="加载数据分析需要使用的科学计算库">加载数据分析需要使用的科学计算库</h3>
+<pre><code class="language-python"># 忽略warning错误
+import warnings  
 warnings.filterwarnings(&quot;ignore&quot;)  
 </code></pre>
 <pre><code class="language-python">import pandas as pd 
 import matplotlib.pyplot as plt 
 import seaborn as sns 
 
-%matplotlib inline
-# 此行代码必须单独一行，同行不可添加注释。作用：plot和figure可直接生成图形或画布 
-
+plt.style.use('fivethirtyeight')
 sns.set_style({'font.sans-serif':['simhei','Arial']})
-sns.set(style=&quot;white&quot;, palette=&quot;muted&quot;, color_codes=True) 
+%matplotlib inline
 </code></pre>
-<h3 id="12-加载读取文件">1.2 加载读取文件</h3>
+<h3 id="读取文件">读取文件</h3>
 <pre><code class="language-python">df = pd.read_csv('./qunar_freetrip.csv',index_col=0)
 </code></pre>
-<h3 id="13-先查看一下行列数量">1.3 先查看一下行列数量</h3>
+<h3 id="查看一下行列数量">查看一下行列数量</h3>
 <pre><code class="language-python">df.shape
 </code></pre>
 <pre><code>(5100, 13)
 </code></pre>
-<h3 id="14-简单浏览下数据">1.4 简单浏览下数据</h3>
+<h3 id="简单浏览下数据">简单浏览下数据</h3>
 <pre><code class="language-python">df.head()
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/%E5%8E%BB%E5%93%AA%E5%84%BF%E7%BD%91df.head.png" alt="" loading="lazy"></figure>
-<h3 id="15-查看数据结构列名-行数-字段类型">1.5 查看数据结构(列名、行数、字段类型)</h3>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>出发地</th>
+      <th>目的地</th>
+      <th>价格</th>
+      <th>节省</th>
+      <th>路线名</th>
+      <th>酒店</th>
+      <th>房间</th>
+      <th>去程航司</th>
+      <th>去程方式</th>
+      <th>去程时间</th>
+      <th>回程航司</th>
+      <th>回程方式</th>
+      <th>回程时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>哈尔滨</td>
+      <td>北海</td>
+      <td>2208.0</td>
+      <td>650.0</td>
+      <td>哈尔滨-北海3天2晚 | 入住北海祥丰嘉年华大酒店 + 春秋航空往返机票</td>
+      <td>北海祥丰嘉年华大酒店 舒适型 4.7分/5分</td>
+      <td>标准双人间(双床) 双床 不含早 1间2晚</td>
+      <td>春秋航空 9C8741</td>
+      <td>直飞</td>
+      <td>17:10-21:50</td>
+      <td>春秋航空 9C8742</td>
+      <td>直飞</td>
+      <td>10:20-15:05</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>成都</td>
+      <td>泸沽湖</td>
+      <td>1145.0</td>
+      <td>376.0</td>
+      <td>成都-泸沽湖3天2晚 | 入住7天酒店丽江古城中心店 + 成都航空往返机票</td>
+      <td>7天酒店丽江古城中心店 经济型 4.0分/5分</td>
+      <td>经济房-不含早-限时特... 其他 不含早 1间2晚</td>
+      <td>成都航空 EU2237</td>
+      <td>直飞</td>
+      <td>19:45-21:20</td>
+      <td>成都航空 EU2738</td>
+      <td>直飞</td>
+      <td>23:30-01:05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>广州</td>
+      <td>沈阳</td>
+      <td>2702.0</td>
+      <td>618.0</td>
+      <td>广州-沈阳3天2晚 | 入住沈阳中煤宾馆 + 南方航空/深圳航空往返机票</td>
+      <td>沈阳中煤宾馆 舒适型 4.5分/5分</td>
+      <td>大床间(内宾) 大床 双早 1间2晚</td>
+      <td>南方航空 CZ6384</td>
+      <td>直飞</td>
+      <td>08:05-11:45</td>
+      <td>深圳航空 ZH9652</td>
+      <td>经停</td>
+      <td>08:20-13:05</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>上海</td>
+      <td>九寨沟</td>
+      <td>1954.0</td>
+      <td>484.0</td>
+      <td>上海-九寨沟3天2晚 | 入住红原芸谊大酒店 + 成都航空往返机票</td>
+      <td>红原芸谊大酒店 舒适型 4.6分/5分</td>
+      <td>豪华双床房[双早] 双床 双早 1间2晚</td>
+      <td>成都航空 EU6678</td>
+      <td>直飞</td>
+      <td>21:55-01:15</td>
+      <td>成都航空 EU6677</td>
+      <td>直飞</td>
+      <td>17:45-20:35</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>广州</td>
+      <td>天津</td>
+      <td>1608.0</td>
+      <td>422.0</td>
+      <td>广州-天津3天2晚 | 入住天津逸海明珠大酒店 + 奥凯航空/海南航空往返机票</td>
+      <td>天津逸海明珠大酒店 高档型 4.1分/5分</td>
+      <td>豪华双床房(预付) 双床 不含早 1间2晚</td>
+      <td>奥凯航空 BK2787</td>
+      <td>直飞</td>
+      <td>06:55-10:00</td>
+      <td>海南航空 HU7201</td>
+      <td>直飞</td>
+      <td>20:15-23:25</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="看下数据的大概分布">看下数据的大概分布</h3>
 <pre><code class="language-python">df.info()
 </code></pre>
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -154,8 +267,8 @@ Data columns (total 13 columns):
 dtypes: float64(2), object(11)
 memory usage: 557.8+ KB
 </code></pre>
-<p>”出发地“、”目的地“、”价格“、”节省“ 四列有缺失值，需要清洗。</p>
-<h3 id="16-describe-展示一些基本信息">1.6 describe( )展示一些基本信息</h3>
+<p>&quot;出发地&quot;、&quot;目的地&quot;、&quot;价格&quot;、&quot;节省&quot; 四列有缺失值，需要清洗。</p>
+<h3 id="describe-展示一些基本信息">describe( )展示一些基本信息</h3>
 <pre><code class="language-python">df.describe()
 </code></pre>
 <div>
@@ -224,36 +337,42 @@ memory usage: 557.8+ KB
   </tbody>
 </table>
 </div>
-<p>”价格“和”节省“两列中数据的最大值异常大，需要判断是否为异常值。</p>
-<h3 id="17-查看有没有重复值">1.7 查看有没有重复值：</h3>
+<p>”价格“和”节省“两列中数据的最大值异常大，价格有十七万，需要检验是否为异常值。</p>
+<h3 id="查看有没有重复值">查看有没有重复值</h3>
 <pre><code class="language-python">df.duplicated().sum()
 </code></pre>
 <pre><code>100
 </code></pre>
-<p>有重复行，后续可直接删除。</p>
-<h3 id="18-再看看列名列名中有空格需要先去除">1.8 再看看列名，列名中有空格，需要先去除</h3>
+<p>有重复的行，后续可直接删除。</p>
+<h3 id="看看列名">看看列名</h3>
 <pre><code class="language-python">df.columns
 </code></pre>
 <pre><code>Index(['出发地 ', ' 目的地', '价格 ', '节省', '路线名', '酒店', '房间', '去程航司', '去程方式', '去程时间',
        '回程航司', '回程方式 ', '回程时间'],
       dtype='object')
 </code></pre>
-<h1 id="二-数据预处理">二、数据预处理</h1>
-<h2 id="1-列名空字符去除">1. 列名空字符去除</h2>
-<pre><code class="language-python">df.columns = [x.strip() for x in df.columns]
+<p>列名中有空格，需要清洗</p>
+<h1 id="数据清洗">数据清洗</h1>
+<h2 id="列名清洗">“列名”清洗</h2>
+<pre><code class="language-python"># 处理列名空字符
+df.columns = [x.strip() for x in df.columns]
 </code></pre>
-<pre><code class="language-python">df.columns
+<pre><code class="language-python"># 再查看
+df.columns
 </code></pre>
 <pre><code>Index(['出发地', '目的地', '价格', '节省', '路线名', '酒店', '房间', '去程航司', '去程方式', '去程时间',
        '回程航司', '回程方式', '回程时间'],
       dtype='object')
 </code></pre>
-<h2 id="2-重复值处理">2. 重复值处理</h2>
-<pre><code class="language-python">df.duplicated().sum()
+<h2 id="重复值处理">重复值处理</h2>
+<h3 id="判断重复行">判断重复行</h3>
+<pre><code class="language-python"># 查看重复行
+df.duplicated().sum()
 </code></pre>
 <pre><code>100
 </code></pre>
-<pre><code class="language-python">df[df.duplicated()]
+<pre><code class="language-python"># 展示重复行的记录
+df[df.duplicated()]
 </code></pre>
 <div>
 <style scoped>
@@ -470,14 +589,17 @@ memory usage: 557.8+ KB
 <p>100 rows × 13 columns</p>
 </div>
 <p>判断有100行重复数据，直接进行去重。</p>
-<pre><code class="language-python">df.drop_duplicates(inplace=True)
+<h3 id="重复行清洗">重复行清洗</h3>
+<pre><code class="language-python"># 删除重读行
+df.drop_duplicates(inplace=True)
 </code></pre>
-<pre><code class="language-python">df.shape
+<pre><code class="language-python"># 再查看
+df.shape
 </code></pre>
 <pre><code>(5000, 13)
 </code></pre>
-<h2 id="3-异常值处理">3. 异常值处理</h2>
-<p>对价格和节省两列数据进行异常值处理：</p>
+<h2 id="异常值处理">异常值处理</h2>
+<h3 id="异常值列概览">异常值列概览</h3>
 <pre><code class="language-python">df.describe()
 </code></pre>
 <div>
@@ -546,8 +668,10 @@ memory usage: 557.8+ KB
   </tbody>
 </table>
 </div>
-<p>找出价格异常值：</p>
-<pre><code class="language-python">df[abs((df.价格-df.价格.mean())/df.价格.std())&gt;3]
+<h3 id="价格异常值清洗">“价格”异常值清洗</h3>
+<pre><code class="language-python"># 展示价格异常值的记录
+# 根据正态分布的特性，可以将3σ之外的数据，视为异常值。
+df[abs((df.价格-df.价格.mean())/df.价格.std())&gt;3]
 </code></pre>
 <div>
 <style scoped>
@@ -602,11 +726,12 @@ memory usage: 557.8+ KB
   </tbody>
 </table>
 </div>
-<p>删除价格异常值：</p>
-<pre><code class="language-python">df.drop(df[abs((df.价格-df.价格.mean())/df.价格.std())&gt;3].index,inplace=True)
+<pre><code class="language-python"># 删除价格异常值
+df.drop(df[abs((df.价格-df.价格.mean())/df.价格.std())&gt;3].index,inplace=True)
 </code></pre>
-<p>找出节省异常值：</p>
-<pre><code class="language-python">df.head(15)
+<h3 id="节省异常值清洗">“节省”异常值清洗</h3>
+<pre><code class="language-python"># 探索异常值情况
+df.head(15)
 </code></pre>
 <div>
 <style scoped>
@@ -889,11 +1014,11 @@ memory usage: 557.8+ KB
 </code></pre>
 <pre><code>4951
 </code></pre>
-<p>说明有48行票价优惠比原价高，不合常理，判断为异常值，数据较少，也可以直接去除。</p>
-<p>删除节省列异常值：</p>
-<pre><code class="language-python">df.drop(df[df.价格&lt;df.节省].index,inplace=True)
+<p>价格大于节省符合常理，反之则为异常。以上数据说明有48行票价优惠比原价高，不合常理，判断为异常值，数据较少，在此处直接去除。</p>
+<pre><code class="language-python"># 删除节省列异常值
+df.drop(df[df.价格&lt;df.节省].index,inplace=True)
 </code></pre>
-<p>检验删除异常值后的数据基本特征：</p>
+<h3 id="检验删除异常值后的数据基本特征">检验删除异常值后的数据基本特征</h3>
 <pre><code class="language-python">df.describe()
 </code></pre>
 <div>
@@ -962,7 +1087,8 @@ memory usage: 557.8+ KB
   </tbody>
 </table>
 </div>
-<h2 id="4-缺失值处理">4. 缺失值处理</h2>
+<h2 id="缺失值处理">缺失值处理</h2>
+<h3 id="查看缺失值情况">查看缺失值情况</h3>
 <pre><code class="language-python">df.isnull().sum()
 </code></pre>
 <pre><code>出发地      2
@@ -980,7 +1106,8 @@ memory usage: 557.8+ KB
 回程时间     0
 dtype: int64
 </code></pre>
-<pre><code class="language-python"># 查看出发地缺失值行
+<h3 id="出发地缺失值处理">“出发地”缺失值处理</h3>
+<pre><code class="language-python"># 展示“出发地”有缺失值的记录
 df[df.出发地.isnull()]
 </code></pre>
 <div>
@@ -1052,14 +1179,17 @@ df[df.出发地.isnull()]
   </tbody>
 </table>
 </div>
-<pre><code class="language-python"># 路线名的前两个字为出发地
+<pre><code class="language-python"># 补充路线名的缺失值
+# 路线名的前两个字为出发地
 df.loc[df.出发地.isnull(),&quot;出发地&quot;] =  [x[:2] for x in df.loc[df.出发地.isnull(),&quot;路线名&quot;]]
 </code></pre>
-<pre><code class="language-python">df.出发地.isnull().sum()
+<pre><code class="language-python"># 再查看
+df.出发地.isnull().sum()
 </code></pre>
 <pre><code>0
 </code></pre>
-<pre><code class="language-python"># 查看目的地缺失值行
+<h3 id="目的地缺失值处理">“目的地”缺失值处理</h3>
+<pre><code class="language-python"># 展示“目的地”有缺失值的记录
 df[df.目的地.isnull()]
 </code></pre>
 <div>
@@ -1118,12 +1248,13 @@ df[df.目的地.isnull()]
 <pre><code class="language-python"># 补充目的地缺失值
 df.loc[df.目的地.isnull(),'目的地'] = '大连'
 </code></pre>
-<pre><code class="language-python">df.目的地.isnull().sum()
+<pre><code class="language-python"># 再查看
+df.目的地.isnull().sum()
 </code></pre>
 <pre><code>0
 </code></pre>
-<pre><code class="language-python"># 查看价格缺失值的行
-df[df.价格.isnull()]
+<pre><code class="language-python"># 检验价格缺失值的记录是否清洗完成
+df[df.目的地.isnull()]
 </code></pre>
 <div>
 <style scoped>
@@ -1159,471 +1290,26 @@ df[df.价格.isnull()]
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>11</th>
-      <td>哈尔滨</td>
-      <td>长沙</td>
-      <td>NaN</td>
-      <td>472.0</td>
-      <td>哈尔滨-长沙3天2晚 | 入住长沙艾玛连锁酒店 + 海南航空/奥凯航空往返机票</td>
-      <td>长沙艾玛连锁酒店 舒适型 3.7分/5分</td>
-      <td>豪华双人间-不含早（预... 双床 不含早 1间2晚</td>
-      <td>海南航空 HU7726</td>
-      <td>经停</td>
-      <td>16:25-22:05</td>
-      <td>奥凯航空 BK2849</td>
-      <td>经停</td>
-      <td>07:15-12:50</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>天津</td>
-      <td>西宁</td>
-      <td>NaN</td>
-      <td>396.0</td>
-      <td>天津-西宁3天2晚 | 入住西宁运通商务宾馆 + 中国国航往返机票</td>
-      <td>西宁运通商务宾馆 舒适型 4.4分/5分</td>
-      <td>标准间(双床)(内宾) 双床 不含早 1间2晚</td>
-      <td>中国国航 CA1241</td>
-      <td>直飞</td>
-      <td>15:25-17:55</td>
-      <td>中国国航 CA8280</td>
-      <td>经停</td>
-      <td>18:15-22:05</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>南京</td>
-      <td>青岛</td>
-      <td>NaN</td>
-      <td>326.0</td>
-      <td>南京-青岛3天2晚 | 入住宜必思酒店青岛城阳正阳路店 + 青岛航/首都航空往返...</td>
-      <td>宜必思酒店青岛城阳正阳路店 4.4分/5分</td>
-      <td>大床房(酒店★力推)(... 大床 不含早 1间2晚</td>
-      <td>青岛航 QW9860</td>
-      <td>直飞</td>
-      <td>22:55-00:10</td>
-      <td>首都航空 JD5298</td>
-      <td>直飞</td>
-      <td>10:40-12:00</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>青岛</td>
-      <td>长沙</td>
-      <td>NaN</td>
-      <td>454.0</td>
-      <td>青岛-长沙3天2晚 | 入住长沙天洋大酒店 + 青岛航/幸福航空往返机票</td>
-      <td>长沙天洋大酒店 3.9分/5分</td>
-      <td>标准大床房[无早] 大床 不含早 1间2晚</td>
-      <td>青岛航 QW9775</td>
-      <td>直飞</td>
-      <td>06:20-08:40</td>
-      <td>幸福航空 JR2769</td>
-      <td>直飞</td>
-      <td>06:40-09:05</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>深圳</td>
-      <td>呼和浩特</td>
-      <td>NaN</td>
-      <td>606.0</td>
-      <td>深圳-呼和浩特3天2晚 | 入住呼和浩特凯基国际商务酒店 + 东方航空/深圳航空...</td>
-      <td>呼和浩特凯基国际商务酒店 高档型 4.4分/5分</td>
-      <td>豪华双人间 双床 双床 不含早 1间2晚</td>
-      <td>东方航空 MU2877</td>
-      <td>经停</td>
-      <td>11:05-17:00</td>
-      <td>深圳航空 ZH9128</td>
-      <td>经停</td>
-      <td>13:55-18:40</td>
-    </tr>
-    <tr>
-      <th>117</th>
-      <td>广州</td>
-      <td>西宁</td>
-      <td>NaN</td>
-      <td>990.0</td>
-      <td>广州-西宁3天2晚 | 入住锦江之星品尚酒店西宁五四西路新华联广场店 + 南方航...</td>
-      <td>锦江之星品尚酒店西宁五四西路新华联广场店 舒适型 4.1分/5分</td>
-      <td>商务房B(内宾)(特惠... 大床 不含早 1间2晚</td>
-      <td>南方航空 CZ3249</td>
-      <td>直飞</td>
-      <td>06:30-10:10</td>
-      <td>南方航空 CZ3130</td>
-      <td>经停</td>
-      <td>13:55-18:40</td>
-    </tr>
-    <tr>
-      <th>118</th>
-      <td>成都</td>
-      <td>厦门</td>
-      <td>NaN</td>
-      <td>530.0</td>
-      <td>成都-厦门3天2晚 | 入住厦门温泉戴斯酒店 + 四川航空/山东航空往返机票</td>
-      <td>厦门温泉戴斯酒店 高档型 4.3分/5分</td>
-      <td>氧吧大床房（无窗)(特... 大床 双早 1间2晚</td>
-      <td>四川航空 3U8869</td>
-      <td>直飞</td>
-      <td>08:00-10:40</td>
-      <td>山东航空 SC4763</td>
-      <td>经停</td>
-      <td>06:15-10:15</td>
-    </tr>
-    <tr>
-      <th>385</th>
-      <td>哈尔滨</td>
-      <td>西宁</td>
-      <td>NaN</td>
-      <td>612.0</td>
-      <td>哈尔滨-西宁3天2晚 | 入住锦江之星品尚酒店西宁火车站店 + 成都航空往返机票</td>
-      <td>锦江之星品尚酒店西宁火车站店 舒适型 4.8分/5分</td>
-      <td>商务标准房C 其他 不含早 1间2晚</td>
-      <td>成都航空 EU2282</td>
-      <td>直飞</td>
-      <td>19:20-23:05</td>
-      <td>成都航空 EU2281</td>
-      <td>直飞</td>
-      <td>15:00-18:30</td>
-    </tr>
-    <tr>
-      <th>615</th>
-      <td>大连</td>
-      <td>长沙</td>
-      <td>NaN</td>
-      <td>424.0</td>
-      <td>大连-长沙3天2晚 | 入住长沙天成国际大酒店 + 奥凯航空往返机票</td>
-      <td>长沙天成国际大酒店 高档型 3.8分/5分</td>
-      <td>特惠双床房（小窗） 双床 双早 1间2晚</td>
-      <td>奥凯航空 BK2842</td>
-      <td>经停</td>
-      <td>13:00-17:30</td>
-      <td>奥凯航空 BK2841</td>
-      <td>经停</td>
-      <td>07:25-12:00</td>
-    </tr>
-    <tr>
-      <th>810</th>
-      <td>重庆</td>
-      <td>鼓浪屿</td>
-      <td>NaN</td>
-      <td>470.0</td>
-      <td>重庆-鼓浪屿3天2晚 | 入住厦门帝乐酒店 + 西藏航空/厦门航空往返机票</td>
-      <td>厦门帝乐酒店 舒适型 4.1分/5分</td>
-      <td>行政客房 双床 双床 双早 1间2晚</td>
-      <td>西藏航空 TV9869</td>
-      <td>直飞</td>
-      <td>18:35-21:10</td>
-      <td>厦门航空 MF8403</td>
-      <td>经停</td>
-      <td>06:50-10:45</td>
-    </tr>
-    <tr>
-      <th>921</th>
-      <td>重庆</td>
-      <td>青岛</td>
-      <td>NaN</td>
-      <td>420.0</td>
-      <td>重庆-青岛3天2晚 | 入住青岛宏运东都大酒店 + 华夏航空/四川航空往返机票</td>
-      <td>青岛宏运东都大酒店 4.5分/5分</td>
-      <td>特惠房(无窗)(双床) 双床 不含早 1间2晚</td>
-      <td>华夏航空 G54710</td>
-      <td>经停</td>
-      <td>18:00-22:25</td>
-      <td>四川航空 3U8232</td>
-      <td>直飞</td>
-      <td>23:10-01:55</td>
-    </tr>
-    <tr>
-      <th>1072</th>
-      <td>西安</td>
-      <td>天津</td>
-      <td>NaN</td>
-      <td>350.0</td>
-      <td>西安-天津3天2晚 | 入住天津中心Today酒店式公寓 + 奥凯航空往返机票</td>
-      <td>天津中心Today酒店式公寓 舒适型 4.5分/5分</td>
-      <td>精品大床房(预付) 大床 不含早 1间2晚</td>
-      <td>奥凯航空 BK2883</td>
-      <td>直飞</td>
-      <td>06:20-08:25</td>
-      <td>奥凯航空 BK2884</td>
-      <td>直飞</td>
-      <td>22:30-00:40</td>
-    </tr>
-    <tr>
-      <th>1367</th>
-      <td>天津</td>
-      <td>桂林</td>
-      <td>NaN</td>
-      <td>474.0</td>
-      <td>天津-桂林3天2晚 | 入住龙胜神龙客栈 + 奥凯航空往返机票</td>
-      <td>龙胜神龙客栈 经济型 0.0分/5分</td>
-      <td>标准间-不含早（预付） 双床 不含早 1间2晚</td>
-      <td>奥凯航空 BK2917</td>
-      <td>直飞</td>
-      <td>10:30-13:20</td>
-      <td>奥凯航空 BK2820</td>
-      <td>直飞</td>
-      <td>11:35-14:30</td>
-    </tr>
-    <tr>
-      <th>1475</th>
-      <td>上海</td>
-      <td>丽江</td>
-      <td>NaN</td>
-      <td>570.0</td>
-      <td>上海-丽江3天2晚 | 入住丽江古城柳暗花明客栈 + 首都航空/东方航空往返机票</td>
-      <td>丽江古城柳暗花明客栈 经济型 4.8分/5分</td>
-      <td>百花筑（标准间)-不含... 双床 不含早 1间2晚</td>
-      <td>首都航空 JD5666</td>
-      <td>直飞</td>
-      <td>20:10-23:55</td>
-      <td>东方航空 MU5820</td>
-      <td>直飞</td>
-      <td>09:00-12:30</td>
-    </tr>
-    <tr>
-      <th>1591</th>
-      <td>大连</td>
-      <td>厦门</td>
-      <td>NaN</td>
-      <td>746.0</td>
-      <td>大连-厦门3天2晚 | 入住厦门北站站前客栈 + 山东航空往返机票</td>
-      <td>厦门北站站前客栈 经济型 4.8分/5分</td>
-      <td>清新大床房-预付--北... 大床 不含早 1间2晚</td>
-      <td>山东航空 SC8796</td>
-      <td>经停</td>
-      <td>12:30-17:35</td>
-      <td>山东航空 SC8795</td>
-      <td>经停</td>
-      <td>07:20-11:45</td>
-    </tr>
-    <tr>
-      <th>1799</th>
-      <td>武汉</td>
-      <td>重庆</td>
-      <td>NaN</td>
-      <td>336.0</td>
-      <td>武汉-重庆3天2晚 | 入住重庆市外贸宾馆 + 华夏航空/东方航空往返机票</td>
-      <td>重庆市外贸宾馆 舒适型 4.4分/5分</td>
-      <td>经济房(内宾)(大床) 大床 双早 1间2晚</td>
-      <td>华夏航空 G52910</td>
-      <td>经停</td>
-      <td>17:55-00:25</td>
-      <td>东方航空 MU2540</td>
-      <td>直飞</td>
-      <td>23:10-00:35</td>
-    </tr>
-    <tr>
-      <th>2116</th>
-      <td>哈尔滨</td>
-      <td>青岛</td>
-      <td>NaN</td>
-      <td>364.0</td>
-      <td>哈尔滨-青岛3天2晚 | 入住青岛影都海岸海景度假公寓万达东方影都店 + 青岛航...</td>
-      <td>青岛影都海岸海景度假公寓万达东方影都店 舒适型 0.0分/5分</td>
-      <td>影都园景大床房 大床 不含早 1间2晚</td>
-      <td>青岛航 QW9784</td>
-      <td>直飞</td>
-      <td>22:45-00:50</td>
-      <td>福州 FU6658</td>
-      <td>直飞</td>
-      <td>22:20-00:20</td>
-    </tr>
-    <tr>
-      <th>2338</th>
-      <td>杭州</td>
-      <td>北海</td>
-      <td>NaN</td>
-      <td>794.0</td>
-      <td>杭州-北海3天2晚 | 入住北海石林大酒店 + 南方航空往返机票</td>
-      <td>北海石林大酒店 4.0分/5分</td>
-      <td>标准间（低楼层）(双床) 双床 双早 1间2晚</td>
-      <td>南方航空 CZ3266</td>
-      <td>经停</td>
-      <td>13:55-18:15</td>
-      <td>南方航空 CZ3265</td>
-      <td>经停</td>
-      <td>08:35-12:40</td>
-    </tr>
-    <tr>
-      <th>3092</th>
-      <td>济南</td>
-      <td>沈阳</td>
-      <td>NaN</td>
-      <td>334.0</td>
-      <td>济南-沈阳3天2晚 | 入住沈阳途家盛捷鑫汇国际服务公寓 + 首都航空/山东航空...</td>
-      <td>沈阳途家盛捷鑫汇国际服务公寓 舒适型 4.6分/5分</td>
-      <td>高级舒适双床房(清凉一... 双床 不含早 1间2晚</td>
-      <td>首都航空 JD5348</td>
-      <td>直飞</td>
-      <td>16:00-17:35</td>
-      <td>山东航空 SC1162</td>
-      <td>直飞</td>
-      <td>18:20-20:05</td>
-    </tr>
-    <tr>
-      <th>3243</th>
-      <td>厦门</td>
-      <td>营口</td>
-      <td>NaN</td>
-      <td>602.0</td>
-      <td>厦门-营口3天2晚 | 入住营口新红运酒店 + 海南航空往返机票</td>
-      <td>营口新红运酒店 高档型 4.2分/5分</td>
-      <td>主题房（无窗）(大床) 大床 双早 1间2晚</td>
-      <td>海南航空 HU7047</td>
-      <td>直飞</td>
-      <td>09:55-13:20</td>
-      <td>海南航空 HU7048</td>
-      <td>直飞</td>
-      <td>14:15-17:45</td>
-    </tr>
-    <tr>
-      <th>3314</th>
-      <td>宁波</td>
-      <td>青岛</td>
-      <td>NaN</td>
-      <td>372.0</td>
-      <td>宁波-青岛3天2晚 | 入住青岛盛泰德大酒店 + 山东航空往返机票</td>
-      <td>青岛盛泰德大酒店 舒适型 4.3分/5分</td>
-      <td>经济大床房(无窗)-即... 大床 不含早 1间2晚</td>
-      <td>山东航空 SC4884</td>
-      <td>直飞</td>
-      <td>22:25-00:05</td>
-      <td>山东航空 SC4883</td>
-      <td>直飞</td>
-      <td>07:35-09:25</td>
-    </tr>
-    <tr>
-      <th>3471</th>
-      <td>南京</td>
-      <td>成都</td>
-      <td>NaN</td>
-      <td>554.0</td>
-      <td>南京-成都3天2晚 | 入住崇州拉菲飞龙酒店 + 东方航空/西藏航空往返机票</td>
-      <td>崇州拉菲飞龙酒店 舒适型 4.5分/5分</td>
-      <td>B栋安静大床房（无电梯... 大床 双早 1间2晚</td>
-      <td>东方航空 MU2880</td>
-      <td>直飞</td>
-      <td>21:55-00:35</td>
-      <td>西藏航空 TV9839</td>
-      <td>直飞</td>
-      <td>06:30-08:55</td>
-    </tr>
-    <tr>
-      <th>3611</th>
-      <td>天津</td>
-      <td>长沙</td>
-      <td>NaN</td>
-      <td>366.0</td>
-      <td>天津-长沙3天2晚 | 入住长沙翔云君泰大酒店 + 南方航空/奥凯航空往返机票</td>
-      <td>长沙翔云君泰大酒店 舒适型 4.5分/5分</td>
-      <td>豪华双间(预付)(双床) 双床 不含早 1间2晚</td>
-      <td>南方航空 CZ3126</td>
-      <td>直飞</td>
-      <td>22:55-01:20</td>
-      <td>奥凯航空 BK2932</td>
-      <td>直飞</td>
-      <td>22:25-00:40</td>
-    </tr>
-    <tr>
-      <th>3724</th>
-      <td>沈阳</td>
-      <td>九寨沟</td>
-      <td>NaN</td>
-      <td>474.0</td>
-      <td>沈阳-九寨沟3天2晚 | 入住九顶山国际大酒店 + 西藏航空/成都航空往返机票</td>
-      <td>九顶山国际大酒店 高档型 3.9分/5分</td>
-      <td>特惠房[双早](双床) 双床 双早 1间2晚</td>
-      <td>西藏航空 TV9880</td>
-      <td>直飞</td>
-      <td>21:10-00:55</td>
-      <td>成都航空 EU2765</td>
-      <td>经停</td>
-      <td>13:35-19:10</td>
-    </tr>
-    <tr>
-      <th>3789</th>
-      <td>宁波</td>
-      <td>大连</td>
-      <td>NaN</td>
-      <td>380.0</td>
-      <td>宁波-大连3天2晚 | 入住大连橡树公馆 + 南方航空/海南航空往返机票</td>
-      <td>大连橡树公馆 高档型 4.8分/5分</td>
-      <td>温馨客房(限量抢购)(... 大床 不含早 1间2晚</td>
-      <td>南方航空 CZ6326</td>
-      <td>直飞</td>
-      <td>17:55-20:05</td>
-      <td>海南航空 HU7718</td>
-      <td>直飞</td>
-      <td>07:00-09:00</td>
-    </tr>
-    <tr>
-      <th>3841</th>
-      <td>成都</td>
-      <td>杭州</td>
-      <td>NaN</td>
-      <td>472.0</td>
-      <td>成都-杭州3天2晚 | 入住千岛湖外高桥大酒店 + 长龙航空/厦门航空往返机票</td>
-      <td>千岛湖外高桥大酒店 4.1分/5分</td>
-      <td>标准房(预付)(双床) 双床 双早 1间2晚</td>
-      <td>长龙航空 GJ8680</td>
-      <td>经停</td>
-      <td>20:25-00:50</td>
-      <td>厦门航空 MF8423</td>
-      <td>直飞</td>
-      <td>08:10-11:05</td>
-    </tr>
-    <tr>
-      <th>3913</th>
-      <td>重庆</td>
-      <td>西安</td>
-      <td>NaN</td>
-      <td>334.0</td>
-      <td>重庆-西安3天2晚 | 入住西安秦皇客栈 + 首都航空/西部航空往返机票</td>
-      <td>西安秦皇客栈 经济型 4.5分/5分</td>
-      <td>大床房 大床 不含早 1间2晚</td>
-      <td>首都航空 JD5102</td>
-      <td>直飞</td>
-      <td>10:45-12:05</td>
-      <td>西部航空 PN6222</td>
-      <td>直飞</td>
-      <td>23:50-01:20</td>
-    </tr>
-    <tr>
-      <th>3962</th>
-      <td>青岛</td>
-      <td>西安</td>
-      <td>NaN</td>
-      <td>334.0</td>
-      <td>青岛-西安3天2晚 | 入住西安申鹏国际商务酒店东大街机场大巴店 + 首都航空/...</td>
-      <td>西安申鹏国际商务酒店东大街机场大巴店 4.0分/5分</td>
-      <td>经济标准间(预付价格)... 双床 不含早 1间2晚</td>
-      <td>首都航空 JD5756</td>
-      <td>直飞</td>
-      <td>22:10-00:20</td>
-      <td>华夏航空 G58816</td>
-      <td>直飞</td>
-      <td>23:10-01:20</td>
-    </tr>
   </tbody>
 </table>
 </div>
-<pre><code class="language-python">sns.distplot(df['价格'].dropna(), kde = True)
+<h3 id="价格和节省缺失值处理">“价格”和“节省”缺失值处理</h3>
+<pre><code class="language-python"># 先绘图看看数据分布情况
+sns.distplot(df['价格'].dropna(), kde = True)
 </code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fd070fcb710&gt;
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9ac02c5710&gt;
 </code></pre>
-<figure data-type="image" tabindex="2"><img src="output_61_1.png" alt="png" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="output_65_1.png" alt="png" loading="lazy"></figure>
 <pre><code class="language-python">sns.distplot(df['节省'].dropna(), kde = True)
 </code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fd040232d90&gt;
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9af8d11c50&gt;
 </code></pre>
-<figure data-type="image" tabindex="3"><img src="output_62_1.png" alt="png" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="output_66_1.png" alt="png" loading="lazy"></figure>
 <p>可以看出，价格和节省两列数据均呈右偏分布，缺失值不多，用中位数填充较好。</p>
 <pre><code class="language-python">df['价格'].fillna(round(df['价格'].median(),0), inplace = True)
 df['节省'].fillna(round(df['节省'].median(),0), inplace = True)
 </code></pre>
+<h3 id="检验缺失值处理完成情况">检验缺失值处理完成情况</h3>
 <pre><code class="language-python">df.isnull().sum()
 </code></pre>
 <pre><code>出发地     0
@@ -1642,7 +1328,10 @@ df['节省'].fillna(round(df['节省'].median(),0), inplace = True)
 dtype: int64
 </code></pre>
 <p>所有行的缺失值已处理完毕。</p>
-<h2 id="5文本型数据的处理">5.文本型数据的处理</h2>
+<blockquote>
+<p>至此数据清洗基本处理完毕，我们看到路线名里包含的信息比较丰富，接下来还可以提取居停时间和居住酒店信息出来，做进一步分析。</p>
+</blockquote>
+<h2 id="文本型数据的处理">文本型数据的处理</h2>
 <p>文本型数据处理多使用正则表达式</p>
 <pre><code class="language-python">df.head(10)
 </code></pre>
@@ -1843,7 +1532,7 @@ dtype: int64
   </tbody>
 </table>
 </div>
-<p>我们还想知道每个预定对应者在旅游地停留的天数，需要从文本特征中提取形如 3天 这样的字符串。</p>
+<p>我们还想知道每个预定对应者在旅游地停留的天数，需要从文本特征中提取形如 “3天” 这样的字符串。</p>
 <pre><code>1）可以利用 str.extract() 方法。
 2）利用正则表达式 (\d+)天\d晚 进行匹配
 </code></pre>
@@ -1857,7 +1546,8 @@ df['酒店等级'] = df['酒店'].str.extract(' (.+) ', expand = False)
 <pre><code class="language-python"># 提取酒店评分
 df['酒店评分'] = df['酒店'].str.extract('(\d\.\d)分/5分',expand=False)
 </code></pre>
-<pre><code class="language-python">df.head()
+<pre><code class="language-python"># 展示提取出天数、酒店等级、酒店评分的部分记录
+df.head()
 </code></pre>
 <div>
 <style scoped>
@@ -1994,6 +1684,20 @@ df['酒店评分'] = df['酒店'].str.extract('(\d\.\d)分/5分',expand=False)
   </tbody>
 </table>
 </div>
+<p>酒店评分绘图展示</p>
+<pre><code class="language-python">sns.distplot(df['酒店评分'].astype(float), kde = True)
+</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9af8d8bc50&gt;
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="output_84_1.png" alt="png" loading="lazy"></figure>
+<p>酒店评分基本呈正态分布，4分和4.5分的评分记录最多。</p>
+<p>酒店等级分布图</p>
+<pre><code class="language-python">sns.countplot(df['酒店等级'])
+</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9af8ef9c50&gt;
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="output_87_1.png" alt="png" loading="lazy"></figure>
+<p>出行酒店绝大多数都选择了舒适型。</p>
 
                 </div>
             </article>
