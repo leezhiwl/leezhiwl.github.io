@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-11-13T09:36:22.528Z</updated>
+    <updated>2020-11-13T09:42:07.243Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
@@ -10,6 +10,16 @@
     <logo>https://leezhiwl.github.io/images/avatar.png</logo>
     <icon>https://leezhiwl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 利用Python进行数据分析</rights>
+    <entry>
+        <title type="html"><![CDATA[Tableau_漏斗数据分析]]></title>
+        <id>https://leezhiwl.github.io/post/tableau_-lou-dou-shu-ju-fen-xi/</id>
+        <link href="https://leezhiwl.github.io/post/tableau_-lou-dou-shu-ju-fen-xi/">
+        </link>
+        <updated>2020-11-13T09:39:57.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://leezhiwl.github.io/post-images/1605260515903.png" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605260522269.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Python_去哪儿网数据清洗]]></title>
         <id>https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/</id>
