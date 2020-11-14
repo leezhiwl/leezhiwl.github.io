@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-11-14T06:14:38.324Z</updated>
+    <updated>2020-11-14T06:42:42.779Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
@@ -16,7 +16,7 @@
         <id>https://leezhiwl.github.io/post/hivesql_/</id>
         <link href="https://leezhiwl.github.io/post/hivesql_/">
         </link>
-        <updated>2020-11-14T05:32:03.000Z</updated>
+        <updated>2020-11-07T05:32:03.000Z</updated>
         <content type="html"><![CDATA[<h4 id="1有emp_sex表数据如下">1.有emp_sex表数据如下</h4>
 <p>name  dept_id sex<br>
 悟空  A       男<br>
@@ -99,7 +99,7 @@ cost int<br>
         <id>https://leezhiwl.github.io/post/hive_-lian-xi/</id>
         <link href="https://leezhiwl.github.io/post/hive_-lian-xi/">
         </link>
-        <updated>2020-11-14T05:27:45.000Z</updated>
+        <updated>2020-11-06T05:27:45.000Z</updated>
         <content type="html"><![CDATA[<h4 id="1关闭防火墙应该如何操作">1.关闭防火墙应该如何操作?</h4>
 <p>systemctl stop firewalld.service<br>
 Systemctl disable firewalld.service</p>
@@ -152,32 +152,47 @@ ARRAY: 是一组具有相同类型和名称的变量的集合。这些变量称�
         <id>https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/</id>
         <link href="https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/">
         </link>
-        <updated>2020-11-13T09:18:11.000Z</updated>
+        <updated>2020-11-05T09:18:11.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://github.com/leezhiwl/DataProject.github.io/blob/main/QunarDataCleaning.ipynb">点击此处可跳转到本文ipynb文件</a></p>
 <figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605259121012.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tableau_超市销售数据分析]]></title>
-        <id>https://leezhiwl.github.io/post/chao-shi-xiao-shou-shu-ju-fen-xi/</id>
-        <link href="https://leezhiwl.github.io/post/chao-shi-xiao-shou-shu-ju-fen-xi/">
+        <title type="html"><![CDATA[Tableau_白酒销售数据分析]]></title>
+        <id>https://leezhiwl.github.io/post/tableau_-bai-jiu-xiao-shou-shu-ju-fen-xi/</id>
+        <link href="https://leezhiwl.github.io/post/tableau_-bai-jiu-xiao-shou-shu-ju-fen-xi/">
         </link>
-        <updated>2020-11-13T08:57:58.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://leezhiwl.github.io/post-images/1605257900242.png" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605257911171.png" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605257919736.png" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605257928969.png" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605257935403.png" alt="" loading="lazy"></p>
+        <updated>2020-11-04T14:17:30.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://leezhiwl.github.io/post-images/1605277083847.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605277105262.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605277110995.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tableau_漏斗数据分析]]></title>
-        <id>https://leezhiwl.github.io/post/tableau_-lou-dou-shu-ju-fen-xi/</id>
-        <link href="https://leezhiwl.github.io/post/tableau_-lou-dou-shu-ju-fen-xi/">
+        <title type="html"><![CDATA[Tableau_深圳新冠疫情]]></title>
+        <id>https://leezhiwl.github.io/post/tableau_-shen-zhen-xin-guan-yi-qing/</id>
+        <link href="https://leezhiwl.github.io/post/tableau_-shen-zhen-xin-guan-yi-qing/">
         </link>
-        <updated>2020-11-13T01:00:57.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://leezhiwl.github.io/post-images/1605260515903.png" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605260522269.png" alt="" loading="lazy"></p>
+        <updated>2020-11-04T11:27:17.000Z</updated>
+        <content type="html"><![CDATA[<p>针对深圳新冠疫情情况，做一期报告。</p>
+<p><img src="https://leezhiwl.github.io/post-images/1605266902463.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266916247.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266922563.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266927429.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266932413.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266939631.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266944064.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266948730.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266953363.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266958230.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266962879.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266967980.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266972497.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266976564.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266982329.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266986363.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266990980.jpg" alt="" loading="lazy"><br>
+<img src="https://leezhiwl.github.io/post-images/1605266996313.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
