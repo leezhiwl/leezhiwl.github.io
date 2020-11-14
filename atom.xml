@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
     <title>利用Python进行数据分析</title>
-    <updated>2020-11-14T05:23:23.952Z</updated>
+    <updated>2020-11-14T05:43:16.410Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
@@ -11,6 +11,142 @@
     <logo>https://leezhiwl.github.io/images/avatar.png</logo>
     <icon>https://leezhiwl.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 利用Python进行数据分析</rights>
+    <entry>
+        <title type="html"><![CDATA[HiveSQL_练习]]></title>
+        <id>https://leezhiwl.github.io/post/hivesql_/</id>
+        <link href="https://leezhiwl.github.io/post/hivesql_/">
+        </link>
+        <updated>2020-11-14T05:32:03.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="1有emp_sex表数据如下">1.有emp_sex表数据如下</h4>
+<p>name  dept_id sex<br>
+悟空  A       男<br>
+大海  A       男<br>
+宋宋  B       男<br>
+凤姐  A       女<br>
+婷姐  B       女<br>
+婷婷  B       女</p>
+<p>问题：写出每个部门男女各有多少人的sql？<br>
+结果示例<br>
+man    woman<br>
+A     2       1<br>
+B     1       2<br>
+<img src="https://leezhiwl.github.io/post-images/1605332440950.jpg" alt="" loading="lazy"></p>
+<h4 id="2有person_info表数据如下">2.有person_info表数据如下：</h4>
+<p>name   constellation   blood_type<br>
+孙悟空  白羊座         A<br>
+大海    射手座         A<br>
+宋宋    白羊座         B<br>
+猪八戒  白羊座         A<br>
+凤姐    射手座         A</p>
+<p>需求：把血型和星座一样的人归类到一起<br>
+结果示例：<br>
+射手座,A            大海|凤姐<br>
+白羊座,A            孙悟空|猪八戒<br>
+白羊座,B            宋宋<br>
+<img src="https://leezhiwl.github.io/post-images/1605332449628.jpg" alt="" loading="lazy"></p>
+<h4 id="3窗口函数练习有一段数据文件如下">3.窗口函数练习：有一段数据文件如下</h4>
+<p>name,orderdate,cost<br>
+jack,2017-01-01,10<br>
+tony,2017-01-02,15<br>
+jack,2017-02-03,23<br>
+tony,2017-01-04,29<br>
+jack,2017-01-05,46<br>
+jack,2017-04-06,42<br>
+tony,2017-01-07,50<br>
+jack,2017-01-08,55<br>
+mart,2017-04-08,62<br>
+mart,2017-04-09,68<br>
+neil,2017-05-10,12<br>
+mart,2017-04-11,75<br>
+neil,2017-06-12,80<br>
+mart,2017-04-13,94</p>
+<p>create table business(<br>
+name string,<br>
+orderdate string,<br>
+cost int<br>
+) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';<br>
+<img src="https://leezhiwl.github.io/post-images/1605332459478.jpg" alt="" loading="lazy"><br>
+需求1：查询在2017年4月份购买过产品的顾客姓名及购买次数<br>
+<img src="https://leezhiwl.github.io/post-images/1605332465311.jpg" alt="" loading="lazy"></p>
+<p>需求2：查询顾客的购买明细及每个月所有顾客的购买总额<br>
+<img src="https://leezhiwl.github.io/post-images/1605332470144.jpg" alt="" loading="lazy"></p>
+<p>需求3：上述的场景，将每个顾客的cost按照日期进行累加<br>
+<img src="https://leezhiwl.github.io/post-images/1605332475427.jpg" alt="" loading="lazy"></p>
+<p>需求4：查看顾客上次购买的时间<br>
+<img src="https://leezhiwl.github.io/post-images/1605332480361.jpg" alt="" loading="lazy"></p>
+<p>需求5：查询前20%时间的订单信息<br>
+<img src="https://leezhiwl.github.io/post-images/1605332485243.jpg" alt="" loading="lazy"></p>
+<h4 id="4函数练习有score表数据如下">4.函数练习：有score表数据如下</h4>
+<p>name subject score<br>
+孙悟空 语文  87<br>
+孙悟空 数学  95<br>
+孙悟空 英语  68<br>
+大海  语文  94<br>
+大海  数学  56<br>
+大海  英语  84<br>
+宋宋  语文  64<br>
+宋宋  数学  86<br>
+宋宋  英语  84<br>
+婷婷  语文  65<br>
+婷婷  数学  85<br>
+婷婷  英语  78</p>
+<p>需求：按照每门学科进行排名<br>
+<img src="https://leezhiwl.github.io/post-images/1605332492544.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hive_基础知识问题]]></title>
+        <id>https://leezhiwl.github.io/post/hive_-lian-xi/</id>
+        <link href="https://leezhiwl.github.io/post/hive_-lian-xi/">
+        </link>
+        <updated>2020-11-14T05:27:45.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="1关闭防火墙应该如何操作">1.关闭防火墙应该如何操作?</h4>
+<p>systemctl stop firewalld.service<br>
+Systemctl disable firewalld.service</p>
+<h4 id="2修改ip时需要更改哪个文件">2.修改IP时，需要更改哪个文件？</h4>
+<p>Vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>
+BOOTPROTO='static'</p>
+<h4 id="3hive中的复杂数据类型有哪些">3.Hive中的复杂数据类型有哪些？</h4>
+<p>STRUCT: 通过“点”符号访问元素类容<br>
+MAP: 是一组键-值对元祖集合，使用数组表示法可以访问数据<br>
+ARRAY: 是一组具有相同类型和名称的变量的集合。这些变量称为数组的元素，每个数组元素都有一个编号，编号从零开始。</p>
+<h4 id="4hive中查看数据库基本信息的指令">4.Hive中查看数据库基本信息的指令？</h4>
+<p>Desc database extended 数据库名;</p>
+<h4 id="5尝试写出hive中创建表的完整语法">5.尝试写出Hive中创建表的完整语法？</h4>
+<p>Create [external] table if not exists 表名<br>
+(列名 数据类型 [comment 本列注释],...)<br>
+[comment 表注释]<br>
+[partitioned by (列名 数据类型 [comment 本列注释],...)]<br>
+[clustered by (列名,列名,...)]<br>
+[sorted by (列名 [asc|desc],...)] info num_buckets buckets]<br>
+[row format row_format]<br>
+[stored as file_format]<br>
+[location hdfs_path]<br>
+[tblproperties (property_name=property_value,...)]<br>
+[as select_statement]</p>
+<h4 id="6内部表和外部表的区别">6.内部表和外部表的区别？</h4>
+<p>Hive在创建内部表时，会将数据移动到数据仓库指向的路径；若创建外部表，仅记录数据所在的路径，不对数据的位置坐任何改变。<br>
+目前所创建的表都是所谓的管理表，有时也被称为内部表，因为这种表，Hive会(或多或少地)控制着数据的生命周期。<br>
+当删除一个管理表时，Hive也会删除这个表中的数据，管理表不方便和其他工作共享数据。</p>
+<ol>
+<li>用关键字external说明</li>
+<li>指定外部表存放的数据的路径</li>
+<li>如果不指定外部表的存放路径，Hive将在HDFS上的/user/hive/warehouse文件夹下以外部表名创建一个文件夹，<br>
+并且将属于这个表的数据都存放在这里</li>
+<li>当删除一个外部表时，只会删除表的元数据信息，而不会删除数据</li>
+<li>在生产中一般创建外部表来存储数据</li>
+</ol>
+<h4 id="7如何清除hive表中的数据">7.如何清除Hive表中的数据？</h4>
+<p>Truncate table 表名;</p>
+<h4 id="8静态分区表和动态分区表有什么区别">8.静态分区表和动态分区表有什么区别？</h4>
+<p>静态分区与动态分区的主要区别在于静态分区是手动指定，而动态分区是通过数据来进行判断。<br>
+静态分区的列是在编译时期，通过用户传递列名来决定的；动态分区是在SQL执行的时候确定的。</p>
+<h4 id="9hive的严格模式限制了哪几种查询">9.Hive的严格模式限制了哪几种查询？</h4>
+<p>分区查询，选择数据条数限制</p>
+<h4 id="10如何将hdfs中的数据导入到hive表中">10.如何将HDFS中的数据导入到Hive表中？</h4>
+<p>load data inpath 'HDFS上的路径' into table 表名 [partition(partcoll=vall,....)];</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Python_去哪儿网数据清洗]]></title>
         <id>https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/</id>
@@ -42,42 +178,6 @@
         <updated>2020-11-13T01:00:57.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://leezhiwl.github.io/post-images/1605260515903.png" alt="" loading="lazy"><br>
 <img src="https://leezhiwl.github.io/post-images/1605260522269.png" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tableau_深圳新冠疫情]]></title>
-        <id>https://leezhiwl.github.io/post/tableau_-shen-zhen-xin-guan-yi-qing/</id>
-        <link href="https://leezhiwl.github.io/post/tableau_-shen-zhen-xin-guan-yi-qing/">
-        </link>
-        <updated>2020-11-12T11:27:17.000Z</updated>
-        <content type="html"><![CDATA[<p>针对深圳新冠疫情情况，做一期报告。</p>
-<p><img src="https://leezhiwl.github.io/post-images/1605266902463.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266916247.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266922563.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266927429.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266932413.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266939631.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266944064.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266948730.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266953363.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266958230.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266962879.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266967980.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266972497.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266976564.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266982329.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266986363.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266990980.jpg" alt="" loading="lazy"><br>
-<img src="https://leezhiwl.github.io/post-images/1605266996313.jpg" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Tableau_香港传染病数据分析]]></title>
-        <id>https://leezhiwl.github.io/post/tableau_-xiang-gang-chuan-ran-bing-shu-ju-fen-xi/</id>
-        <link href="https://leezhiwl.github.io/post/tableau_-xiang-gang-chuan-ran-bing-shu-ju-fen-xi/">
-        </link>
-        <updated>2020-11-12T11:01:17.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://leezhiwl.github.io/post-images/1605265335635.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

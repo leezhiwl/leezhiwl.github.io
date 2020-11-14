@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Hello Gridea | 利用Python进行数据分析</title>
+<title>Hive_基础知识问题 | 利用Python进行数据分析</title>
 
 <link rel="shortcut icon" href="https://leezhiwl.github.io/favicon.ico?v=1605332493924">
 
@@ -89,45 +89,76 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    Hello Gridea
+                    Hive_基础知识问题
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · December 12 2018 ·
+                        · November 14 2020 ·
                     </time>
                     
-                        <a href="https://leezhiwl.github.io/tag/Gv7q_g_uc/" class="post-tags">
-                            # Gridea
+                        <a href="https://leezhiwl.github.io/tag/WE_U7aEwL/" class="post-tags">
+                            # Hive
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+                    <h4 id="1关闭防火墙应该如何操作">1.关闭防火墙应该如何操作?</h4>
+<p>systemctl stop firewalld.service<br>
+Systemctl disable firewalld.service</p>
+<h4 id="2修改ip时需要更改哪个文件">2.修改IP时，需要更改哪个文件？</h4>
+<p>Vim /etc/sysconfig/network-scripts/ifcfg-ens33<br>
+BOOTPROTO='static'</p>
+<h4 id="3hive中的复杂数据类型有哪些">3.Hive中的复杂数据类型有哪些？</h4>
+<p>STRUCT: 通过“点”符号访问元素类容<br>
+MAP: 是一组键-值对元祖集合，使用数组表示法可以访问数据<br>
+ARRAY: 是一组具有相同类型和名称的变量的集合。这些变量称为数组的元素，每个数组元素都有一个编号，编号从零开始。</p>
+<h4 id="4hive中查看数据库基本信息的指令">4.Hive中查看数据库基本信息的指令？</h4>
+<p>Desc database extended 数据库名;</p>
+<h4 id="5尝试写出hive中创建表的完整语法">5.尝试写出Hive中创建表的完整语法？</h4>
+<p>Create [external] table if not exists 表名<br>
+(列名 数据类型 [comment 本列注释],...)<br>
+[comment 表注释]<br>
+[partitioned by (列名 数据类型 [comment 本列注释],...)]<br>
+[clustered by (列名,列名,...)]<br>
+[sorted by (列名 [asc|desc],...)] info num_buckets buckets]<br>
+[row format row_format]<br>
+[stored as file_format]<br>
+[location hdfs_path]<br>
+[tblproperties (property_name=property_value,...)]<br>
+[as select_statement]</p>
+<h4 id="6内部表和外部表的区别">6.内部表和外部表的区别？</h4>
+<p>Hive在创建内部表时，会将数据移动到数据仓库指向的路径；若创建外部表，仅记录数据所在的路径，不对数据的位置坐任何改变。<br>
+目前所创建的表都是所谓的管理表，有时也被称为内部表，因为这种表，Hive会(或多或少地)控制着数据的生命周期。<br>
+当删除一个管理表时，Hive也会删除这个表中的数据，管理表不方便和其他工作共享数据。</p>
+<ol>
+<li>用关键字external说明</li>
+<li>指定外部表存放的数据的路径</li>
+<li>如果不指定外部表的存放路径，Hive将在HDFS上的/user/hive/warehouse文件夹下以外部表名创建一个文件夹，<br>
+并且将属于这个表的数据都存放在这里</li>
+<li>当删除一个外部表时，只会删除表的元数据信息，而不会删除数据</li>
+<li>在生产中一般创建外部表来存储数据</li>
+</ol>
+<h4 id="7如何清除hive表中的数据">7.如何清除Hive表中的数据？</h4>
+<p>Truncate table 表名;</p>
+<h4 id="8静态分区表和动态分区表有什么区别">8.静态分区表和动态分区表有什么区别？</h4>
+<p>静态分区与动态分区的主要区别在于静态分区是手动指定，而动态分区是通过数据来进行判断。<br>
+静态分区的列是在编译时期，通过用户传递列名来决定的；动态分区是在SQL执行的时候确定的。</p>
+<h4 id="9hive的严格模式限制了哪几种查询">9.Hive的严格模式限制了哪几种查询？</h4>
+<p>分区查询，选择数据条数限制</p>
+<h4 id="10如何将hdfs中的数据导入到hive表中">10.如何将HDFS中的数据导入到Hive表中？</h4>
+<p>load data inpath 'HDFS上的路径' into table 表名 [partition(partcoll=vall,....)];</p>
 
                 </div>
             </article>
         </div>
 
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://leezhiwl.github.io/post/python_-qu-na-er-wang-shu-ju-qing-xi/" class="post-title gt-a-link">
+                    Python_去哪儿网数据清洗
+                </a>
+            </div>
         
 
         
