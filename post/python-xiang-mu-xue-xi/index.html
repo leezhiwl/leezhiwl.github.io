@@ -6,7 +6,7 @@
 
 <title>Python_数据集练习 | 利用Python进行数据分析</title>
 
-<link rel="shortcut icon" href="https://leezhiwl.github.io/favicon.ico?v=1605330051181">
+<link rel="shortcut icon" href="https://leezhiwl.github.io/favicon.ico?v=1605331215039">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://leezhiwl.github.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1605330051181" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1605331215039" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -183,7 +183,38 @@
 -- 对于数据记录按照月为频率取样<br>
 <img src="https://leezhiwl.github.io/post-images/1605282830361.jpg" alt="" loading="lazy"><br>
 <a href="https://github.com/leezhiwl/DataProject.github.io/blob/main/wind.ipynb">探索风速数据ipynb文件链接</a></p>
-<h1 id="7-删除数据">7. 删除数据</h1>
+<h1 id="7-创建数据框">7. 创建数据框</h1>
+<h3 id="探索pokemon数据">探索Pokemon数据</h3>
+<p>-- 创建一个数据字典<br>
+-- 将数据字典存为一个名叫pokemon的数据框中<br>
+-- 数据框的列排序是字母顺序，请重新修改为name, type, hp, evolution, pokedex这个顺序<br>
+-- 添加一个列place['park','street','lake','forest']<br>
+-- 查看每个列的数据类型<br>
+import pandas as pd<br>
+创建一个数据字典<br>
+raw_data = {&quot;name&quot;: ['Bulbasaur', 'Charmander','Squirtle','Caterpie'],<br>
+&quot;evolution&quot;: ['Ivysaur','Charmeleon','Wartortle','Metapod'],<br>
+&quot;type&quot;: ['grass', 'fire', 'water', 'bug'],<br>
+&quot;hp&quot;: [45, 39, 44, 45],<br>
+&quot;pokedex&quot;: ['yes', 'no','yes','no']<br>
+}<br>
+<img src="https://leezhiwl.github.io/post-images/1605330399718.jpg" alt="" loading="lazy"><br>
+<a href="https://github.com/leezhiwl/DataProject.github.io/blob/main/Pokemon.ipynb">探索Pokemon数据ipynb文件链接</a></p>
+<h1 id="8-时间序列">8. 时间序列</h1>
+<h3 id="探索apple公司股价数据">探索Apple公司股价数据</h3>
+<p>-- 读取数据并存为一个名叫apple的数据框<br>
+-- 查看每一列的数据类型<br>
+-- 将Date这个列转换为datetime类型<br>
+-- 将Date设置为索引<br>
+-- 有重复的日期吗？<br>
+-- 将index设置为升序<br>
+-- 找到每个月的最后一个交易日(business day)<br>
+-- 数据集中最早的日期和最晚的日期相差多少天？<br>
+-- 在数据中一共有多少个月？<br>
+-- 按照时间顺序可视化Adj Close值<br>
+<img src="https://leezhiwl.github.io/post-images/1605331192495.jpg" alt="" loading="lazy"><br>
+<a href="https://github.com/leezhiwl/DataProject.github.io/blob/main/time.ipynb">探索Apple公司股价数据ipynb文件链接</a></p>
+<h1 id="9-删除数据">9. 删除数据</h1>
 <h3 id="探索iris纸鸢花数据">探索Iris纸鸢花数据</h3>
 <p>-- 将数据集存成变量iris<br>
 -- 创建数据框的列名称['sepal_length','sepal_width', 'petal_length', 'petal_width', 'class']<br>
