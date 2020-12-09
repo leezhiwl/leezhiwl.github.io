@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://leezhiwl.github.io</id>
-    <title>利用Python进行数据分析</title>
-    <updated>2020-12-09T05:20:21.704Z</updated>
+    <title>告诉自己~你很重要~为自己而活</title>
+    <updated>2020-12-09T05:23:54.052Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://leezhiwl.github.io"/>
     <link rel="self" href="https://leezhiwl.github.io/atom.xml"/>
@@ -10,7 +10,7 @@
 </subtitle>
     <logo>https://leezhiwl.github.io/images/avatar.png</logo>
     <icon>https://leezhiwl.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 利用Python进行数据分析</rights>
+    <rights>All rights reserved 2020, 告诉自己~你很重要~为自己而活</rights>
     <entry>
         <title type="html"><![CDATA[随感]]></title>
         <id>https://leezhiwl.github.io/post/sui-gan/</id>
